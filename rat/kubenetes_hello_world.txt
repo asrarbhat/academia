@@ -1,0 +1,23 @@
+# give app name as : appname followed by last three digits of your usn
+# for eg. 1ms99cs001 -> appname001
+# give port name : digit 9 follwed by last three digits of your usn
+# for eg 1ms99cs001 -> 9001
+
+
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+kubectl get deployment hello-node
+kubectl get pods | grep '^hello-node'
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+kubectl get service hello-node
+
+http://172.1.14.168:<node_port>
+
+
+######################
+kubectl get deployments
+kubectl get pods
+kubectl get services
+
+kubectl delete deployment hello-node
+kubedtl delete service hello-node
+kubectl delete --all pods
