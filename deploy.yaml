@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meta-demoo
+  namespace: default
+  labels:
+     app: meta-demoo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: meta-demoo
+  template:
+    metadata:
+      labels:
+        app: meta-demoo
+    spec:
+      containers:
+      - name: meta-demoo
+        image: asrarbhat/meta
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meta-demoo
+  namespace: default
+  labels:
+     app: meta-demoo
+spec:
+  type: NodePort
+  selector:
+     app: meta-demoo
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30906
+
+
+
