@@ -1,0 +1,9 @@
+we need a couple of microservices,and a service registry(eureka),an api gateway.
+
+go to spring initializr
+    include
+        spring web
+        spring data jpa
+        sql
+
+application.yaml file in resources
